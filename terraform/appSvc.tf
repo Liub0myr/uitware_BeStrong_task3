@@ -6,7 +6,7 @@ resource "azurerm_service_plan" "svcplan" {
   location            = azurerm_resource_group.BeStrong.location
   resource_group_name = azurerm_resource_group.BeStrong.name
   os_type             = "Linux"
-  sku_name            = "B1"
+  sku_name            = "S1"
 }
 
 resource "azurerm_linux_web_app" "appsvc" {
