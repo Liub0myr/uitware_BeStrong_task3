@@ -2,10 +2,7 @@ trigger:
   branches:
     include:
       - main
-  paths:
-    exclude:
-      - '*'
-      
+
 pool:
   vmImage: ubuntu-latest
 
