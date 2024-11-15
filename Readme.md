@@ -75,4 +75,3 @@ See the examples here:
 
 
 ![ASPNETCOREWebAPIGET](./.github/delete.jpg)
-
