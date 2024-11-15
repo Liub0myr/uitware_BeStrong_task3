@@ -72,12 +72,15 @@ jobs:
       ASPNETCORE_ENVIRONMENT: 'Development'
       ASPNETCORE_URLS: 'http://*:80'
 
-- job: deployToWebApp
+- deployment: deployToWebApp
   displayName: 'Deploy Docker image to Azure Web App'
   dependsOn: buildAndPush
-  steps:
-    - task: AzureWebAppContainer@1
-      inputs:
-        azureSubscription: '$(environmentServiceNameAzureRM)'
-        appName: '$(webAppName)'
-        imageName: '$(containerRegistry)/$(imageRepository):$(imageTag)'
+  strategy:
+    runOnce:
+      deploy:
+        steps:
+        - task: AzureWebAppContainer@1
+          inputs:
+            azureSubscription: '$(environmentServiceNameAzureRM)'
+            appName: '$(webAppName)'
+            imageName: '$(containerRegistry)/$(imageRepository):$(imageTag)'
